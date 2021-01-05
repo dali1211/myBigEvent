@@ -21,6 +21,7 @@ iframe {
   overflow: hidden;
 }
 
+/* 强制a链接动画清除掉 */
 a {
   transition: none !important;
 }
@@ -33,6 +34,7 @@ a {
   user-select: none;
 }
 
+/* 因为userinfo多处地方有显示，所以使用子代选择器去选择需要修改的样式。 */
 .layui-side-scroll .userinfo {
   border-bottom: 1px solid #282b33;
 }

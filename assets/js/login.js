@@ -32,8 +32,11 @@ $(function () {
     }
   })
 
+
   // 监听注册表单的提交事件
   $('#form_reg').on('submit', function (e) {
+    console.log(11);
+
     // 1. 阻止默认的提交行为
     e.preventDefault()
     // 2. 发起Ajax的POST请求
@@ -41,7 +44,7 @@ $(function () {
       username: $('#form_reg [name=username]').val(),
       password: $('#form_reg [name=password]').val()
     }
-    $.post('http://ajax.frontend.itheima.net/api/reguser', data, function (res) {
+    $.post('/api/reguser', data, function (res) {
       if (res.status !== 0) {
         return layer.msg(res.message)
       }
@@ -53,24 +56,13 @@ $(function () {
 
 
 
-  // $("#form_reg").on('submit', function (e) {
-  //   e.preventDefault()    //取消默认行为
-  //   $.post("http://ajax.frontend.itheima.net/api/reguser", { username: $('#form_reg[name = username]').val(), password: $('#form_reg[name = password]').val() }, function (res) {
-  //     if (res.status !== 0) {
-  //       return layer.msg(res.message)
-  //     }
-  //     layer.msg("注册成功，请登录！")
-  //     $("#link_login").click()
-  //   })
-  // })
-
 
   // 监听登录表单的提交事件
   $('#form_login').submit(function (e) {
     // 阻止默认提交行为
     e.preventDefault()
     $.ajax({
-      url: 'http://ajax.frontend.itheima.net/api/login',
+      url: '/api/login',
       method: 'POST',
       // 快速获取表单中的数据
       data: $(this).serialize(),
@@ -86,4 +78,8 @@ $(function () {
       }
     })
   })
+  
 })
+
+
+
